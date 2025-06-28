@@ -12,6 +12,7 @@
 <template v-else>
   <PopularMovies />
   <NewMovies />
+  <TopRatedMovies />
 </template>
 </template>
 
@@ -22,6 +23,7 @@ import FilterBar from '../components/FilterBar.vue'
 import SearchResults from '../components/SearchResults.vue'
 import PopularMovies from '../components/PopularMovies.vue'
 import NewMovies from '../components/NewMovies.vue'
+import TopRatedMovies from '../components/TopRatedMovies.vue'
 
 const API_KEY = '869fc71a84bd9cd648431c3a41f4f92b'
 const searchResults = ref([])
