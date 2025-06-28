@@ -200,6 +200,7 @@ button:focus-visible {
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
+  padding-right: 3%;
 }
 
 .logo {
@@ -210,8 +211,17 @@ button:focus-visible {
   transition: .3s;
 }
 
+.hamburger {
+  display: none !important; 
+  font-size: 2rem;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
 .nav {
-  display: flex;
+  display: flex !important;
   gap: 1rem;
 }
 
@@ -309,12 +319,32 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
-@media (min-width: 768px) {
+@media (max-width: 768px) {
   .movie-detail-container {
     flex-direction: row;
   }
   .poster {
     width: 300px;
     border-radius: 8px;
+  }
+  .hamburger {
+    display: block !important;
+    order: 2;
+  }
+
+  .nav {
+    display: none !important;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+    margin-top: 1rem;
+    order: 3;
+  }
+
+  .nav.open {
+    display: flex !important;
+  }
+  .logo{
+    order: 1;
   }
 }
