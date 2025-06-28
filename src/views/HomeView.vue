@@ -8,8 +8,11 @@
   </div>
 
   <SearchResults v-if="searchResults.length > 0" :movies="searchResults" />
-  <PopularMovies v-else-if="!filteredMovies.length" />
-  <SearchResults v-else :movies="filteredMovies" />
+  <SearchResults v-else-if="filteredMovies.length > 0" :movies="filteredMovies" />
+<template v-else>
+  <PopularMovies />
+  <NewMovies />
+</template>
 </template>
 
 <script setup>
@@ -18,6 +21,7 @@ import SearchBar from '../components/SearchBar.vue'
 import FilterBar from '../components/FilterBar.vue'
 import SearchResults from '../components/SearchResults.vue'
 import PopularMovies from '../components/PopularMovies.vue'
+import NewMovies from '../components/NewMovies.vue'
 
 const API_KEY = '869fc71a84bd9cd648431c3a41f4f92b'
 const searchResults = ref([])
