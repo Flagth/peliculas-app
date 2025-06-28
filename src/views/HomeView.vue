@@ -1,7 +1,12 @@
 <template>
-  <SearchBar @search="searchMovies" ref="searchBar" />
-  <FilterBar @filter="filterByGenre" ref="filterBar" />
-  <button @click="resetFilters" class="btn-reset">Refrescar filtros</button>
+  <div class="controls-wrapper">
+    <div class="controls">
+      <SearchBar @search="searchMovies" ref="searchBar" />
+      <FilterBar @filter="filterByGenre" ref="filterBar" />
+      <button @click="resetFilters" class="btn-reset">Refrescar filtros</button>
+    </div>
+  </div>
+
   <SearchResults v-if="searchResults.length > 0" :movies="searchResults" />
   <PopularMovies v-else-if="!filteredMovies.length" />
   <SearchResults v-else :movies="filteredMovies" />
