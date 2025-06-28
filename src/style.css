@@ -281,6 +281,22 @@ button:focus-visible {
   margin-right: 8px;
 }
 
+.btn-see-more {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.6rem 1.2rem;
+  background-color: #2563eb;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: background-color 0.3s;
+}
+
+.btn-see-more:hover {
+  background-color: #1d4ed8;
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;

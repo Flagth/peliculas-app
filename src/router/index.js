@@ -2,6 +2,9 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import MovieDetailView from '../views/MovieDetailView.vue'
 import FavoritesView from '../views/FavoritesView.vue'
+import TopRatedView from '../views/TopRatedView.vue'
+import PopularView from '../views/PopularView.vue'
+import NewMoviesView from '../views/NewMoviesView.vue'
 
 const routes = [
   {
@@ -19,6 +22,21 @@ const routes = [
     path: '/favoritos',
     name: 'Favorites',
     component: FavoritesView
+  },
+  {
+    path: '/mejor-calificadas',
+    name: 'TopRated',
+    component: TopRatedView
+  },
+  {
+    path: '/populares',
+    name: 'Popular',
+    component: PopularView
+  },
+  {
+    path: '/recientes',
+    name: 'NewMovies',
+    component: NewMoviesView
   }
 ]
 

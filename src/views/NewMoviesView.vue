@@ -1,22 +1,19 @@
 <template>
   <div class="movies-container">
-    <h2>Películas Recientes</h2>
+    <h1>Películas Recientes</h1>
     <section class="movie-grid">
       <MovieCard
-        v-for="movie in movies.slice(0, 6)"
+        v-for="movie in movies"
         :key="movie.id"
         :movie="movie"
       />
     </section>
-    <router-link to="/recientes" class="btn-see-more">
-      Ver más
-    </router-link>
   </div>
 </template>
 
 <script setup>
 import { ref, onMounted } from 'vue'
-import MovieCard from './MovieCard.vue'
+import MovieCard from '../components/MovieCard.vue'
 
 const API_KEY = '869fc71a84bd9cd648431c3a41f4f92b'
 const movies = ref([])
