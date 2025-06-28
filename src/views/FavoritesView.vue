@@ -1,6 +1,6 @@
 <template>
   <div class="favorites">
-    <h1>Mis Favoritos</h1>
+    <h2>Mis Favoritos</h2>
     <div v-if="favorites.length > 0" class="favorites-grid">
       <div
         v-for="movie in favorites"
@@ -9,7 +9,7 @@
       >
         <router-link :to="`/pelicula/${movie.id}`">
           <img :src="getImageUrl(movie.poster_path)" :alt="movie.title" />
-          <h2>{{ movie.title }}</h2>
+          <h3>{{ movie.title }}</h3>
           <p>Estreno: {{ movie.release_date }}</p>
         </router-link>
         <button @click="removeFromFavorites(movie.id)" class="btn-remove">

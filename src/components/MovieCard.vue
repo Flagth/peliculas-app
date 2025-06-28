@@ -1,14 +1,15 @@
 <template>
-  <router-link :to="`/pelicula/${movie.id}`" class="movie-card">
-    <img :src="getImageUrl(movie.poster_path)" :alt="movie.title" />
-    <div>
-      <h2>{{ movie.title }}</h2>
-      <p>Estreno: {{ movie.release_date }}</p>
-    </div>
-  </router-link>
+  <div class="movie-card">
+    <router-link :to="`/pelicula/${movie.id}`">
+      <img :src="getImageUrl(movie.poster_path)" :alt="movie.title" />
+      <h3>{{ movie.title }}</h3>
+      <p class="rating">⭐ {{ movie.vote_average.toFixed(1) }}</p>
+    </router-link>
+  </div>
 </template>
 
 <script setup>
+import { defineProps } from 'vue'
 const props = defineProps({
   movie: Object
 })
