@@ -1,7 +1,11 @@
 <template>
   <h2>Películas del Momento</h2>
   <section class="movie-grid">
-    <MovieCard v-for="movie in movies" :key="movie.id" :movie="movie" />
+    <MovieCard
+        v-for="movie in movies.slice(0, 6)"
+        :key="movie.id"
+        :movie="movie"
+      />
   </section>
 </template>
 
