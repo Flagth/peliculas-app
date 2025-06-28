@@ -12,7 +12,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, defineExpose } from 'vue'
 
 const emit = defineEmits(['filter'])
 const API_KEY = '869fc71a84bd9cd648431c3a41f4f92b'
@@ -32,4 +32,11 @@ onMounted(async () => {
     console.error('Error al obtener géneros:', error)
   }
 })
+
+// Método para reiniciar el filtro desde el padre
+const clearFilter = () => {
+  selectedGenre.value = ''
+}
+
+defineExpose({ clearFilter })
 </script>

@@ -1,6 +1,7 @@
 <template>
-  <SearchBar @search="searchMovies" />
-  <FilterBar @filter="filterByGenre" />
+  <SearchBar @search="searchMovies" ref="searchBar" />
+  <FilterBar @filter="filterByGenre" ref="filterBar" />
+  <button @click="resetFilters" class="btn-reset">Refrescar filtros</button>
   <SearchResults v-if="searchResults.length > 0" :movies="searchResults" />
   <PopularMovies v-else-if="!filteredMovies.length" />
   <SearchResults v-else :movies="filteredMovies" />
@@ -28,12 +29,18 @@ const filterByGenre = async (genreId) => {
     filteredMovies.value = []
     return
   }
-  try {
-    const res = await fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&language=es-ES&with_genres=${genreId}`)
-    const data = await res.json()
-    filteredMovies.value = data.results
-  } catch (error) {
-    console.error('Error al filtrar por género:', error)
-  }
+  const res = await fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&language=es-ES&with_genres=${genreId}`)
+  const data = await res.json()
+  filteredMovies.value = data.results
 }
+
+const resetFilters = () => {
+  searchResults.value = []
+  filteredMovies.value = []
+  if (searchBar.value) searchBar.value.clearSearch()
+  if (filterBar.value) filterBar.value.clearFilter()
+}
+
+const searchBar = ref(null)
+const filterBar = ref(null)
 </script>
