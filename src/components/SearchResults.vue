@@ -1,4 +1,5 @@
 <template>
+  <h2>Resultados</h2>
   <section v-if="movies.length > 0" class="movie-grid">
     <MovieCard v-for="movie in movies" :key="movie.id" :movie="movie" />
   </section>
