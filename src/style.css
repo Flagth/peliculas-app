@@ -166,6 +166,22 @@ button:focus-visible {
   margin-top: 2rem;
   font-size: 1.2rem;
 }
+
+.btn-remove {
+  margin: 0.5rem;
+  padding: 0.4rem 0.8rem;
+  background-color: #dc2626;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.btn-remove:hover {
+  background-color: #b91c1c;
+}
+
 .header {
   position: fixed;              
   top: 0;                       
