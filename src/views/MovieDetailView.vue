@@ -11,6 +11,7 @@
           <li><strong>Géneros:</strong> {{ movie.genres.map(g => g.name).join(', ') }}</li>
           <li><strong>Promedio de votos:</strong> {{ movie.vote_average }}</li>
         </ul>
+        <button @click="addToFavorites" class="btn-fav">Agregar a favoritos</button>
       </div>
     </div>
   </div>
@@ -31,4 +32,22 @@ onMounted(async () => {
   const data = await res.json()
   movie.value = data
 })
+
+const addToFavorites = () => {
+  if (!movie.value) return
+  const existingFavorites = JSON.parse(localStorage.getItem('favorites') || '[]')
+  const isAlreadyFavorite = existingFavorites.some(fav => fav.id === movie.value.id)
+  if (!isAlreadyFavorite) {
+    existingFavorites.push({
+      id: movie.value.id,
+      title: movie.value.title,
+      poster_path: movie.value.poster_path,
+      release_date: movie.value.release_date
+    })
+    localStorage.setItem('favorites', JSON.stringify(existingFavorites))
+    alert('Película agregada a favoritos ✅')
+  } else {
+    alert('La película ya está en favoritos ⚠️')
+  }
+}
 </script>
