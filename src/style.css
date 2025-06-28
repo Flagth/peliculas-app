@@ -84,6 +84,12 @@ button:focus-visible {
   font-size: 0.8rem;
   color: #555;
 }
+.filter-bar {
+  margin: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
 
 @media (prefers-color-scheme: light) {
   :root {
