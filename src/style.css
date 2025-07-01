@@ -105,8 +105,9 @@ button:focus-visible {
 
 .movie-detail-container {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   gap: 1rem;
+  align-items: center;
 }
 .movie-detail ul {
   list-style: none;
